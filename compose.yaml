@@ -1,0 +1,23 @@
+services:
+  churn-dashboard:
+    build: .
+    ports:
+      - "${PORT:-8501}:8501"
+    environment:
+      APP_DATA_DIR: /app/data
+      AUTO_ALERTS_ENABLED: "${AUTO_ALERTS_ENABLED:-false}"
+      SLACK_WEBHOOK_URL: "${SLACK_WEBHOOK_URL:-}"
+      SMTP_HOST: "${SMTP_HOST:-}"
+      SMTP_PORT: "${SMTP_PORT:-587}"
+      SMTP_USE_SSL: "${SMTP_USE_SSL:-false}"
+      SMTP_USE_STARTTLS: "${SMTP_USE_STARTTLS:-true}"
+      SMTP_FROM: "${SMTP_FROM:-}"
+      SMTP_USER: "${SMTP_USER:-}"
+      SMTP_PASSWORD: "${SMTP_PASSWORD:-}"
+      ALERT_EMAIL_TO: "${ALERT_EMAIL_TO:-}"
+    volumes:
+      - churn-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  churn-data:

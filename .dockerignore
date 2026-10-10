@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.db
+*.sqlite*
+.env
+.git/
+.vscode/
+.pytest_cache/
+tests/
+WA_Fn-UseC_-Telco-Customer-Churn.csv
+customer_alert_history.csv
+intervention_log.csv
